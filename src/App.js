@@ -20,6 +20,7 @@ class App extends Component {
             hourly: [],
             location: {},
             today: {},
+            units: 'imperial',
             isLoading: false,
             error: null,
 
@@ -37,7 +38,7 @@ class App extends Component {
     
     getSiteData() {
         Promise.all([
-            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.position.coords.latitude}&lon=${this.state.position.coords.longitude}&exclude={part}&appid=${process.env.REACT_APP_OW_API_APPID}`),
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.position.coords.latitude}&lon=${this.state.position.coords.longitude}&exclude={part}&appid=${process.env.REACT_APP_OW_API_APPID}&units=${this.state.units}`),
             fetch(`https://revgeocode.search.hereapi.com/v1/revgeocode?at=${this.state.position.coords.latitude},${this.state.position.coords.longitude}&apiKey=${process.env.REACT_APP_HERE_API_KEY}`)
         ]).then(responses => Promise.all(responses.map(response => {
           return response.json();
@@ -49,7 +50,6 @@ class App extends Component {
             
             const hereData = data[1];
 
-            console.log(daily)
             this.setState({ 
                 current,
                 today,

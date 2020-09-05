@@ -1,9 +1,9 @@
 import React from 'react';
-import { convertKtoF } from '../../util/convertKtoF.js';
 
 const Temperature = props => {
     const { temp, style } = props;
-    return <span style={style}>{temp && convertKtoF(temp)}</span>
+    console.log();
+    return <span style={style}>{temp && parseInt(temp).toFixed(0) + `°`}</span>
 };
 
 export default Temperature;

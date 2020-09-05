@@ -21,6 +21,7 @@ const CurrentConditions = props => {
 
     const currentTempStyle = {
         fontSize: "8rem",
+        fontWeight: "300",
     };
 
     const minMaxStyle = {
@@ -48,7 +49,7 @@ const CurrentConditions = props => {
                 <div className="col-4 text-center my-auto">
                     {min && <Temperature style={minMaxStyle} temp={min} />}
                     <br></br>
-                    <hr style={{ borderTop: "solid black 1px", width: "60%" }}></hr>
+                    <hr style={{ borderTop: "solid black 1px", width: "50%" }}></hr>
                     {max && <Temperature style={minMaxStyle} temp={max} />}
                 </div>
             </div>

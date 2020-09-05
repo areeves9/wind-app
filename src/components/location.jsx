@@ -4,10 +4,13 @@ import Time from './common/time';
 const Location = props => {
 
         const { timestamp } = props.position;
-
         const timeStyle = {
-            marginBottom: "0px"
-        }
+            marginBottom: "0px",
+            display: "inline",
+        };
+
+        const weekday = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"]
+        const day = dt => new Date(dt).getDay();
 
         return (
             !timestamp ? null :            
@@ -17,7 +20,8 @@ const Location = props => {
                         <h1 className="font-weight-light">
                             {props.location.city}
                         </h1>
-                        <Time style={timeStyle} timestamp={timestamp} format={{ hour: "2-digit", minute: "2-digit" }}/>
+                        <span>{weekday[day(timestamp)-1]}, <Time style={timeStyle} timestamp={timestamp} format={{ hour: "2-digit", minute: "2-digit" }}/>
+                        </span>
                     </li>
                 </ul> 
             </nav>
