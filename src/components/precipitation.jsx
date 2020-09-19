@@ -7,7 +7,7 @@ const Precipitation = props => {
     const time = [hourly.map(h => h.dt)];
     return (
             <React.Fragment>
-            <div className="col-12 col-md-6 col-lg-4 mt-4">
+            <div className="col-12 col-md-6 col-lg-4 mt-4 mb-4">
                 <div className="card border-0 d-block d-sm-none">
                     <div className="card-body">
                         <h5 className="card-title">Precipitation</h5>

@@ -31,7 +31,7 @@ const CurrentConditions = props => {
     
     return (
         <React.Fragment>
-            <nav style={{ listStyleType: "none", position: "relative" }} className="navbar navbar-light bg-white border-0 mt-5">
+            <nav style={{ listStyleType: "none", position: "relative" }} className="navbar navbar-light bg-white border-0">
                 <ul style={ulStyle} className="mr-auto list-group list-group-horizontal border-0">
                     <li className="p-0 pr-1 list-group-item  border-0">
                         {weather && <Icon style={iconStyle} weather={weather} />}
@@ -41,14 +41,14 @@ const CurrentConditions = props => {
                     </li>
                 </ul>
             </nav>
-            <div className="row mb-5 mt-3">
-                <div className="col-8 col-md-4 col-lg-4">
+            <div className="row mt-3">
+                <div className="col-8 col-md-6 col-lg-4">
                     {currentTemp && <Temperature style={currentTempStyle} temp={currentTemp} />}
                 </div>
-                <div className="col-4 col-md-4 col-lg-4 text-center my-auto">
+                <div className="col-4 col-md-6 col-lg-2 text-center my-auto">
                     {min && <Temperature style={minMaxStyle} temp={min} />}
                     <br></br>
-                    <hr style={{ borderTop: "solid black 1px", width: "50%" }}></hr>
+                    <hr style={{ borderTop: "solid black 1px", width: "3rem" }}></hr>
                     {max && <Temperature style={minMaxStyle} temp={max} />}
                 </div>
             </div>

@@ -119,8 +119,11 @@ class App extends Component {
                 <div className="container-fluid">
                     <div className="row justify-content-center">
                         <div className="col-md-6 col-lg-8 d-none d-sm-block">
-                            {location && position && <Location location={location} position={position} />}
                             {current && today && <Current current={current} today={today} />}
+                            {location && position && <Location location={location} position={position} />}
+                        </div>
+                        <div className="col-md-6 col-lg-8 d-none d-sm-block">
+                           
                         </div>
                     </div>
 
