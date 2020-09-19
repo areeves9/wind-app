@@ -116,9 +116,6 @@ class App extends Component {
                     {current && today && <Current current={current} today={today} />}
                 </div>
 
-
-
-
                 <div className="container-fluid">
                     <div className="row justify-content-center">
                         <div className="col-md-6 col-lg-8 d-none d-sm-block">
@@ -170,8 +167,6 @@ class App extends Component {
                         {hourly && <Precipitation hourly={hourly} />}
                     </div>
                 </div>
-
-                
             </React.Fragment>
     };
 };
