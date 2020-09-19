@@ -9,7 +9,7 @@ const Location = props => {
             display: "inline",
         };
 
-        const weekday = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"]
+        const weekday = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
         const day = dt => new Date(dt).getDay();
 
         return (
@@ -20,7 +20,7 @@ const Location = props => {
                         <h1 className="font-weight-light">
                             {props.location.city}
                         </h1>
-                        <span>{weekday[day(timestamp)-1]}, <Time style={timeStyle} timestamp={timestamp} format={{ hour: "2-digit", minute: "2-digit" }}/>
+                        <span>{weekday[day(timestamp)]}, <Time style={timeStyle} timestamp={timestamp} format={{ hour: "2-digit", minute: "2-digit" }}/>
                         </span>
                     </li>
                 </ul> 

@@ -27,9 +27,8 @@ const CurrentConditions = props => {
     const minMaxStyle = {
         fontSize: '1.5rem',
         fontWeight: 'light',
-    }
+    };
     
-
     return (
         <React.Fragment>
             <nav style={{ listStyleType: "none", position: "relative" }} className="navbar navbar-light bg-white border-0 mt-5">

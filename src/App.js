@@ -103,16 +103,54 @@ class App extends Component {
         };
 
         if (error) {
-            return <p className="text-center">Something went wrong.</p>;
+            return <p className="text-center">
+                Something went wrong.
+            </p>;
         };
 
         return <React.Fragment>
                 {location && position && <Location location={location} position={position} />}
                 {current && today && <Current current={current} today={today} />}
-                {hourly && <Hourly hourly={hourly} />}
-                {current && <Details current={current} />}
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-12 d-block d-sm-none">
+                            {hourly && <Hourly current={current} hourly={hourly} />}
+                            {daily && <Forecast daily={daily} />}
+                        </div>
+                        
+
+                        <div className="col-md-6 col-lg-4 d-none d-sm-block">
+                            <div className="card">
+                                <div className="card-body">
+                                <h5 class="card-title">Forecast</h5>
+                                    {hourly && <Hourly current={current} hourly={hourly} />}
+                                    {daily && <Forecast daily={daily} />}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-md-6 col-lg-4 d-none d-sm-block">
+                            <div className="card">
+                                <div className="card-body">
+                                    <h5 class="card-title">Details</h5>
+                                    <div className="row justify-content-center align-items-center">
+                                        {current && <Details current={current} />}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div className="container d-block d-sm-none">
+                    <h3 className="mt-5">Details</h3>
+                    <div className="row mb-5 justify-content-center align-items-centerow">
+                        {current && <Details current={current} />}
+                    </div>
+                </div>
+
                 {hourly && <Precipitation hourly={hourly} />}
-                {daily && <Forecast daily={daily} />}
             </React.Fragment>
     };
 };

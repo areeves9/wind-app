@@ -21,19 +21,20 @@ const ForecastItem = props => {
         float: "right",
     };
 
-    const weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    
+    const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const day = dt => new Date(dt*1000).getDay();
 
     return (
         <li className="list-group-item border-0 mb-n3">
             <div style={{position: "relative"}} className="row">
-                <div style={{ position: "relative" }} className="col-7">
+                <div style={{ position: "relative" }} className="col-7 col-md-7">
                     <p style={{ position: "absolute", left: "-5px", fontWeight: "600" }} className="mb-n4"> 
                         {weekday[day(dt)]}
                     </p>
                     <Icon style={iconStyle} weather={weather} />    
                 </div>
-                <div style={{ position: "absolute", right: "-1rem" }} className="col-4">
+                <div style={{ position: "absolute", right: "-1rem" }} className="col-4 col-md-5">
                     <p style={{ fontWeight: "600" }} className="">
                         <Temperature style={tempStyle} temp={temp.min} />
                         <Temperature style={tempStyle1} temp={temp.max} />
