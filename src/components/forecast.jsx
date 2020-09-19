@@ -1,10 +1,8 @@
 import React from 'react';
 import ForecastItem from './common/forecastItem';
 
-const day = dt => new Date(dt*1000).getDay();
 
 const Forecast = props => {
-    props.daily.map((d) => console.log(day(d.dt)));
     return ( 
             <div className="row justify-content-center align-items-center">
                 <div className="col-12 col-md-11">

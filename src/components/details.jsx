@@ -1,35 +1,5 @@
 import React from 'react';
-import Temperature from './common/temperature';
 import Detail from './common/detail';
-import { convertKtoF } from '../util/convertKtoF';
-
-
-/** 
- * Given "0-360" returns the nearest cardinal direction "N/NE/E/SE/S/SW/W/NW"  
- */
-const getCardinal = angle => {
-    /** 
-     * Customize by changing the number of directions you have
-     * We have 8
-     */
-    const degreePerDirection = 360 / 8;
-  
-    /** 
-     * Offset the angle by half of the degrees per direction
-     * Example: in 4 direction system North (320-45) becomes (0-90)
-     */
-    const offsetAngle = angle + degreePerDirection / 2;
-  
-    return (offsetAngle >= 0 * degreePerDirection && offsetAngle < 1 * degreePerDirection) ? "N"
-      : (offsetAngle >= 1 * degreePerDirection && offsetAngle < 2 * degreePerDirection) ? "NE"
-        : (offsetAngle >= 2 * degreePerDirection && offsetAngle < 3 * degreePerDirection) ? "E"
-          : (offsetAngle >= 3 * degreePerDirection && offsetAngle < 4 * degreePerDirection) ? "SE"
-            : (offsetAngle >= 4 * degreePerDirection && offsetAngle < 5 * degreePerDirection) ? "S"
-              : (offsetAngle >= 5 * degreePerDirection && offsetAngle < 6 * degreePerDirection) ? "SW"
-                : (offsetAngle >= 6 * degreePerDirection && offsetAngle < 7 * degreePerDirection) ? "W"
-                  : "NW";
-
-};
 
 const Details = props => {
     const { current } = props;
@@ -39,7 +9,6 @@ const Details = props => {
         humidity, 
         pressure,
         visibility,
-        wind_deg,
         wind_speed, 
     } = current;
     

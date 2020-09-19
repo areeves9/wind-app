@@ -137,7 +137,7 @@ class App extends Component {
                         <div className="col-md-6 col-lg-4 d-none d-sm-block">
                             <div className="card">
                                 <div className="card-body">
-                                <h5 class="card-title">Forecast</h5>
+                                <h5 className="card-title">Forecast</h5>
                                     {hourly && <Hourly current={current} hourly={hourly} />}
                                     {daily && <Forecast daily={daily} />}
                                 </div>
@@ -147,7 +147,7 @@ class App extends Component {
                         <div className="col-md-6 col-lg-4 d-none d-sm-block">
                             <div className="card">
                                 <div className="card-body">
-                                    <h5 class="card-title">Details</h5>
+                                    <h5 className="card-title">Details</h5>
                                     <div className="row justify-content-center align-items-center">
                                         {current && <Details current={current} />}
                                     </div>
