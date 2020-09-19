@@ -37,9 +37,11 @@ class App extends Component {
     };
     
     getSiteData() {
+        const { coords } = this.state.position;
+
         Promise.all([
-            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.position.coords.latitude}&lon=${this.state.position.coords.longitude}&exclude={part}&appid=${process.env.REACT_APP_OW_API_APPID}&units=${this.state.units}`),
-            fetch(`https://revgeocode.search.hereapi.com/v1/revgeocode?at=${this.state.position.coords.latitude},${this.state.position.coords.longitude}&apiKey=${process.env.REACT_APP_HERE_API_KEY}`)
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${coords.latitude}&lon=${coords.longitude}&exclude={part}&appid=${process.env.REACT_APP_OW_API_APPID}&units=${this.state.units}`),
+            fetch(`https://revgeocode.search.hereapi.com/v1/revgeocode?at=${coords.latitude},${coords.longitude}&apiKey=${process.env.REACT_APP_HERE_API_KEY}`)
         ]).then(responses => Promise.all(responses.map(response => {
           return response.json();
         })).then(data => {
@@ -109,15 +111,28 @@ class App extends Component {
         };
 
         return <React.Fragment>
-                {location && position && <Location location={location} position={position} />}
-                {current && today && <Current current={current} today={today} />}
+                <div className="container-fluid d-block d-sm-none">
+                    {location && position && <Location location={location} position={position} />}
+                    {current && today && <Current current={current} today={today} />}
+                </div>
+
+
+
+
                 <div className="container-fluid">
-                    <div className="row">
+                    <div className="row justify-content-center">
+                        <div className="col-md-6 col-lg-8 d-none d-sm-block">
+                            {location && position && <Location location={location} position={position} />}
+                            {current && today && <Current current={current} today={today} />}
+                        </div>
+                    </div>
+
+                    <div className="row justify-content-center">
                         <div className="col-12 d-block d-sm-none">
                             {hourly && <Hourly current={current} hourly={hourly} />}
                             {daily && <Forecast daily={daily} />}
                         </div>
-                        
+
 
                         <div className="col-md-6 col-lg-4 d-none d-sm-block">
                             <div className="card">
@@ -143,14 +158,20 @@ class App extends Component {
                     </div>
                 </div>
 
-                <div className="container d-block d-sm-none">
-                    <h3 className="mt-5">Details</h3>
-                    <div className="row mb-5 justify-content-center align-items-centerow">
+                <div className="container-fluid d-block d-sm-none">
+                    <h5 className="mt-5">Details</h5>
+                    <div className="row justify-content-center align-items-centerow">
                         {current && <Details current={current} />}
                     </div>
                 </div>
 
-                {hourly && <Precipitation hourly={hourly} />}
+                <div className="container-fluid">
+                    <div className="row justify-content-center">
+                        {hourly && <Precipitation hourly={hourly} />}
+                    </div>
+                </div>
+
+                
             </React.Fragment>
     };
 };

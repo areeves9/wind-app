@@ -42,10 +42,10 @@ const CurrentConditions = props => {
                 </ul>
             </nav>
             <div className="row mb-5 mt-3">
-                <div className="col-8">
+                <div className="col-8 col-md-4 col-lg-4">
                     {currentTemp && <Temperature style={currentTempStyle} temp={currentTemp} />}
                 </div>
-                <div className="col-4 text-center my-auto">
+                <div className="col-4 col-md-4 col-lg-4 text-center my-auto">
                     {min && <Temperature style={minMaxStyle} temp={min} />}
                     <br></br>
                     <hr style={{ borderTop: "solid black 1px", width: "50%" }}></hr>
