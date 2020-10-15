@@ -38,7 +38,7 @@ const LinearPlot = props => {
               weight: 'bold',
               size: 16,
             },
-            align: 'start',
+            align: 'end',
             color: '#6c757d',
             labels: {
               title: {},

@@ -40,8 +40,8 @@ class App extends Component {
         const { coords } = this.state.position;
 
         Promise.all([
-            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${coords.latitude}&lon=${coords.longitude}&exclude={part}&appid=${process.env.REACT_APP_OW_API_APPID}&units=${this.state.units}`),
-            fetch(`https://revgeocode.search.hereapi.com/v1/revgeocode?at=${coords.latitude},${coords.longitude}&apiKey=${process.env.REACT_APP_HERE_API_KEY}`)
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=25.7617&lon=-80.1918&exclude={part}&appid=${process.env.REACT_APP_OW_API_APPID}&units=${this.state.units}`),
+            fetch(`https://revgeocode.search.hereapi.com/v1/revgeocode?at=25.7617,-80.1918&apiKey=${process.env.REACT_APP_HERE_API_KEY}`)
         ]).then(responses => Promise.all(responses.map(response => {
           return response.json();
         })).then(data => {
