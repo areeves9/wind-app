@@ -9,7 +9,7 @@ const Location = props => {
             display: "inline",
         };
 
-        const weekday = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
+        const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
         const day = dt => new Date(dt).getDay();
 
         return (

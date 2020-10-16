@@ -6,11 +6,11 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 const LinearPlot = props => {
     const {precipitation, time} = props;
 
-    const nthdateTime = (arr, nth) => arr.filter((e, i) => i % nth === 0);
-    const dtToLocal = arr => arr.map(dt => new Date(dt*1000).toLocaleTimeString([], {hour: '2-digit'}));
+    const nthDateTime = (arr, nth) => arr.filter((e, i) => i % nth === 0);
+    const dtToLocal = arr => arr.map(dt => new Date(dt*1000).toLocaleTimeString([], {hour: '2-digit'}).replace(/^0+/, "").trim())
 
     const data = {
-        labels: dtToLocal(nthdateTime(time[0], 4)),
+        labels: dtToLocal(nthDateTime(time[0], 4)),
         datasets: [
           {
             backgroundColor: "rgba(75,192,192,0.2)",
